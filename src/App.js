@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Header, Footer, CardContainer } from './organisms';
-import { Panel, Grid } from './molecules';
+import { Panel, Grid, Hero } from './molecules';
 import classnames from 'classnames';
-/* import { Card, Button } from './molecules'; */
 
-
-import styles from './App.css';
-// import logo from './logo.svg';
+import './App.css';
+import config from './data/config.json';
 
 const footerLinks = [
   { title: 'Home', url: 'http://www.yahoo.com' },
@@ -17,11 +15,17 @@ const footerLinks = [
 class App extends Component {
   render() {
 
-    const theme = 'light'; // TODO: Fetch this from config store.
+    const theme = config.theme;
 
     return (
       <div className={classnames('app', `acss-theme-${theme}`, 'acss-background-primary')}>
         <Header theme={theme}/>
+
+        <Hero 
+          backgroundImg="https://upload.wikimedia.org/wikipedia/commons/c/cc/Mira_the_star-by_Nasa_alt_crop.jpg"
+          imgWidth={100}
+          link="/"
+        />
         
         <Grid>
           <h2>Cards</h2>
